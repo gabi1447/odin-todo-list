@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* STATIC ELEMENTS */
+body {
+    background-color: black;
+    color: white;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
+}
+
+.btns {
+    border: none;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    font-size: 4vw;
+    color: white;
+    background-color: black;
+}
+
+#nav-bar:hover {
+    border-right: 1px solid #8c8c8c;
+    border-left: 1px solid #8c8c8c;
+}
+
+.btns:hover {
+    border-bottom: 1px solid #8c8c8c;
+    background-color: #1a1a1a;
+}
+
