@@ -1,0 +1,15 @@
+#content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    font-size: 3.5vw;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.home-logo {
+    width: 45%;
+    height: auto;
+}
