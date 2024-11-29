@@ -8,6 +8,7 @@
 body {
     background-color: black;
     color: white;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 header {
@@ -21,7 +22,7 @@ header {
     border: none;
     padding: 1rem 2rem;
     cursor: pointer;
-    font-size: 4vw;
+    font-size: 3vw;
     color: white;
     background-color: black;
 }
