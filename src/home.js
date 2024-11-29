@@ -8,11 +8,14 @@ function selectDomElement(selectorType, selector) {
     return content;
 }
 
-export function generateHomePage(selectorType, selectorName, imageJs) {
+export function generateHomePage(selectorType, selectorName, imageJs, headlineText) {
     const homeContent = selectDomElement(selectorType, selectorName);
 
     const homepageLogo = generateHomeLogo(imageJs);
     homeContent.appendChild(homepageLogo);
+
+    const homepageHeadline = generateHeadline(headlineText);
+    homeContent.appendChild(homepageHeadline);
 }
 
 function generateHomeLogo(imageJs) {
@@ -21,4 +24,12 @@ function generateHomeLogo(imageJs) {
     logoImg.src = imageJs;
 
     return logoImg;
+}
+
+function generateHeadline(headlineText) {
+    const homepageHeadline = document.createElement('h2');
+    homepageHeadline.className = 'homepage-headline';
+    homepageHeadline.innerText = headlineText;
+
+    return homepageHeadline;
 }
