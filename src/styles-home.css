@@ -1,8 +1,8 @@
 #content {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 5rem;
 
     width: 100%;
     font-size: 3.5vw;
@@ -10,6 +10,12 @@
 }
 
 .home-logo {
-    width: 45%;
+    width: 35%;
     height: auto;
+}
+
+.homepage-headline {
+    align-self: center;
+    font-size: 4vw;
+    width: 8ch;
 }
