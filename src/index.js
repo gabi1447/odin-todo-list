@@ -6,7 +6,7 @@ import logo from './todo-list-logo.png'
 import { generateHomePage } from "./home"
 
 function main() {
-    generateHomePage('id', 'content', logo);
+    generateHomePage('id', 'content', logo, 'Plan and Organize');
 }
 
 main();
