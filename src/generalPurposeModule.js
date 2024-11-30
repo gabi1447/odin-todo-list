@@ -6,3 +6,7 @@ export function turnStringWithHighensToSpaces(string) {
     return string.replaceAll(/-/g, " ");
 }
 
+export function removeElementContent(selector) {
+    selector.innerText = '';
+}
+
