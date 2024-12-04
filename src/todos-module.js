@@ -56,8 +56,8 @@ export const Projects = (function(){
         return projectsObject;
     }
 
-    function AddProject(keyProjectName, arrayOfItemObjects) {
-        projectsObject[keyProjectName] = arrayOfItemObjects;
+    function AddProject(projectObject) {
+        projectsObject[projectObject.name] = projectObject.todosArray;
     }
 
     function removeProject(projectName) {
