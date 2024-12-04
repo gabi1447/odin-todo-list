@@ -1,4 +1,5 @@
 import { turnStringWithHighensToSpaces as highensToSpaces } from './generalPurposeModule.js';
+import { sendToLocalStorage, retrieveFromLocalStorage } from './localStorageModule.js';
 
 export function makeTodoItemObject(title, description, dueDate, priority) {
     return {
@@ -38,3 +39,47 @@ export function createTodosProject(projectName) {
         returnTodoItems
     }
 }
+
+export const Projects = (function(){
+    let localStorageKeyName = 'projectsObject';
+    let projectsObject = {};
+
+    function getProjectsKey() {
+        return localStorageKeyName
+    }
+
+    function changeProjectsKeyName(newProjectsName) {
+        localStorageKeyName = newProjectsName;
+    }
+
+    function getProjectsObject() {
+        return projectsObject;
+    }
+
+    function AddProject(keyProjectName, arrayOfItemObjects) {
+        projectsObject[keyProjectName] = arrayOfItemObjects;
+    }
+
+    function removeProject(projectName) {
+        delete projectsObject[projectName];
+    }
+
+    function updateLocalStorage() {
+        const projectsKeyName = getProjectsKey();
+        const projectsData = getProjectsObject();
+        sendToLocalStorage(projectsKeyName, projectsData);
+    }
+
+    function retrieveProjectsDataFromLocalStorage() {
+        const projectsKeyName = getProjectsKey();
+        return retrieveFromLocalStorage(projectsKeyName);
+    }
+
+    return {
+        changeProjectsKeyName,
+        updateLocalStorage,
+        retrieveProjectsDataFromLocalStorage,
+        AddProject,
+        removeProject
+    }
+})();
