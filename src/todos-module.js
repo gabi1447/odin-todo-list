@@ -11,10 +11,17 @@ export function makeTodoItemObject(title, description, dueDate, priority) {
 }
 
 export function createTodosProject(projectName) {
-    let todosArray = [];
+    let todosObjectsArray = [];
 
-    function addTodoItemToProject(todoItemObject) {
-        todosArray.push(todoItemObject);
+    return {
+        name: projectName,
+        itemsArray: todosObjectsArray
+    }
+}
+
+export const Project =(function() {
+    function addTodoItemToProject(todoItemObject, projectObject) {
+        projectObject.itemsArray.push(todoItemObject);
     }
 
     function removeTodoItemFromProject(todoTitleStringWithHighens) {
@@ -33,12 +40,11 @@ export function createTodosProject(projectName) {
     }
 
     return {
-        name: projectName,
         addTodoItemToProject, 
         removeTodoItemFromProject,
         returnTodoItems
     }
-}
+});
 
 export const Projects = (function(){
     let localStorageKeyName = 'projectsObject';
@@ -56,8 +62,8 @@ export const Projects = (function(){
         return projectsObject;
     }
 
-    function AddProject(projectObject) {
-        projectsObject[projectObject.name] = projectObject.todosArray;
+    function AddProject(projectName, ArrayOfItems) {
+        projectsObject[projectName] = ArrayOfItems;
     }
 
     function removeProject(projectName) {
