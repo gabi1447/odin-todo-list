@@ -24,17 +24,16 @@ export const Project =(function() {
         projectObject.itemsArray.push(todoItemObject);
     }
 
-    function removeTodoItemFromProject(todoTitleStringWithHighens) {
+    function removeTodoItemFromProject(todoTitleStringWithHighens, projectObject) {
         const title = highensToSpaces(todoTitleStringWithHighens);
-        todosArray.forEach((itemObject) => {
+        projectObject.itemsArray.forEach((itemObject) => {
             if (itemObject.title === title) {
                 const indexOfObject = todosArray.indexOf(itemObject);
-                todosArray.splice(indexOfObject, 1);
+                projectObject.itemsArray.splice(indexOfObject, 1);
             }
         })
     }
 
-    // Testing
     function returnTodoItems(projectObject) {
         return projectObject.itemsArray;
     }
