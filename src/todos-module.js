@@ -35,8 +35,8 @@ export const Project =(function() {
     }
 
     // Testing
-    function returnTodoItems() {
-        return todosArray;
+    function returnTodoItems(projectObject) {
+        return projectObject.itemsArray;
     }
 
     return {
