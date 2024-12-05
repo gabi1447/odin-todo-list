@@ -80,10 +80,15 @@ export const Projects = (function(){
         return retrieveFromLocalStorage(projectsKeyName);
     }
 
+    function updateProjectsObject(newProjectsObject) {
+        projectsObject = newProjectsObject;
+    }
+
     return {
         changeProjectsKeyName,
         updateLocalStorage,
         retrieveProjectsDataFromLocalStorage,
+        updateProjectsObject,
         AddProject,
         removeProject
     }
