@@ -1,14 +1,4 @@
-import { removeElementContent } from "./generalPurposeModule";
-
-function selectDomElement(selectorType, selector) {
-    let content;
-    if (selectorType === 'id') {
-        content = document.querySelector(`#${selector}`);
-    } else if (selectorType === 'class') {
-        content = document.querySelector(`.${selector}`);
-    }
-    return content;
-}
+import { removeElementContent, selectDomElement } from "./generalPurposeModule";
 
 export function generateHomePage(selectorType, selectorName, imageJs, headlineText) {
     const homeContent = selectDomElement(selectorType, selectorName);
