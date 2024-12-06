@@ -1,3 +1,5 @@
+import { removeElementContent } from "./generalPurposeModule";
+
 function selectDomElement(selectorType, selector) {
     let content;
     if (selectorType === 'id') {
@@ -10,6 +12,7 @@ function selectDomElement(selectorType, selector) {
 
 export function generateHomePage(selectorType, selectorName, imageJs, headlineText) {
     const homeContent = selectDomElement(selectorType, selectorName);
+    removeElementContent(homeContent);
 
     const homepageLogo = generateHomeLogo(imageJs);
     homeContent.appendChild(homepageLogo);
