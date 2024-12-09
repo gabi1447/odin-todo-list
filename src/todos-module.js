@@ -43,7 +43,7 @@ export const Project =(function() {
         removeTodoItemFromProject,
         returnTodoItems
     }
-});
+})();
 
 export const Projects = (function(){
     let localStorageKeyName = 'projectsObject';
@@ -61,7 +61,7 @@ export const Projects = (function(){
         return projectsObject;
     }
 
-    function AddProject(projectName, ArrayOfItems) {
+    function addProject(projectName, ArrayOfItems) {
         projectsObject[projectName] = ArrayOfItems;
     }
 
@@ -86,10 +86,11 @@ export const Projects = (function(){
 
     return {
         changeProjectsKeyName,
+        getProjectsObject,
         updateLocalStorage,
         retrieveProjectsDataFromLocalStorage,
         updateProjectsObject,
-        AddProject,
+        addProject,
         removeProject
     }
 })();
