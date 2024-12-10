@@ -7,6 +7,11 @@ export function generateProjectsPage(selectorType, selectorName) {
     const homeContent = selectDomElement(selectorType, selectorName);
     removeElementContent(homeContent);
 
+    const projectsObject = Projects.retrieveProjectsDataFromLocalStorage();
+    if (projectsObject === null) {
+        createProjectAndSaveItToLocalStorage('default');
+    };
+
     const heading = generateProjectsHeading()
     homeContent.appendChild(heading);
 }
@@ -20,6 +25,6 @@ function generateProjectsHeading() {
 
 function createProjectAndSaveItToLocalStorage(projectName) {
     const project = createTodosProject(projectName);
-    Projects.addProject(project.name, defaultProject.itemsArray);
+    Projects.addProject(project.name, project.itemsArray);
     Projects.updateLocalStorage();
 }
