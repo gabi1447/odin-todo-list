@@ -5,6 +5,7 @@ import logo from './todo-list-logo.png'
 
 import { generateHomePage } from "./home"
 import { setupStaticEventListeners } from './eventListeners'
+import { makeTodoItemObject, createTodosProject, Project, Projects } from './todos-module'
 
 function main() {
     setupStaticEventListeners();
