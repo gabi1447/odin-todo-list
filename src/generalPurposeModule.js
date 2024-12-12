@@ -19,3 +19,7 @@ export function selectDomElement(selectorType, selector) {
     }
     return content;
 }
+
+export function addClassToSelector(selector, className) {
+    selector.className = className;
+}
