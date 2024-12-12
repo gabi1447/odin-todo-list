@@ -46,9 +46,7 @@ function generateProject(projectKeyName) {
     projectCard.className = 'project-card';
     projectCard.id = projectKeyName;
 
-    const projectCardHeading = document.createElement('h2');
-    projectCardHeading.className = 'project-card-heading';
-    projectCardHeading.innerText = projectKeyName;
+    const projectCardHeading = generateProjectHeading(projectKeyName);
 
     const buttonContainer = document.createElement('div');
     buttonContainer.className = 'buttonContainer';
@@ -65,4 +63,12 @@ function generateProject(projectKeyName) {
     projectCard.appendChild(buttonContainer);
 
     return projectCard;
+}
+
+function generateProjectHeading(projectName) {
+    const projectCardHeading = document.createElement('h2');
+    projectCardHeading.className = 'project-card-heading';
+    projectCardHeading.innerText = projectName;
+
+    return projectCardHeading;
 }
