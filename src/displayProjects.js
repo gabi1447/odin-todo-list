@@ -56,7 +56,7 @@ function generateProject(projectKeyName) {
 }
 
 function generateProjectHeading(projectName) {
-    const projectCardHeading = document.createElement('h2');
+    const projectCardHeading = document.createElement('h3');
     projectCardHeading.className = 'project-card-heading';
     projectCardHeading.innerText = projectName;
 
@@ -65,7 +65,7 @@ function generateProjectHeading(projectName) {
 
 function generateUiButtons() {
     const buttonContainer = document.createElement('div');
-    buttonContainer.className = 'buttonContainer';
+    buttonContainer.className = 'button-container';
 
     const visitButton = generateButton('visit-button', 'visit');
 
