@@ -47,17 +47,7 @@ function generateProject(projectKeyName) {
     projectCard.id = projectKeyName;
 
     const projectCardHeading = generateProjectHeading(projectKeyName);
-
-    const buttonContainer = document.createElement('div');
-    buttonContainer.className = 'buttonContainer';
-    const visitButton = document.createElement('button');
-    visitButton.className = 'visit-button';
-    visitButton.innerText = 'visit';
-    const deleteButton = document.createElement('button');
-    deleteButton.innerText = 'delete';
-    deleteButton.className = 'delete-button';
-    buttonContainer.appendChild(visitButton);
-    buttonContainer.appendChild(deleteButton);
+    const buttonContainer = generateUiButtons();
 
     projectCard.appendChild(projectCardHeading);
     projectCard.appendChild(buttonContainer);
@@ -71,4 +61,26 @@ function generateProjectHeading(projectName) {
     projectCardHeading.innerText = projectName;
 
     return projectCardHeading;
+}
+
+function generateUiButtons() {
+    const buttonContainer = document.createElement('div');
+    buttonContainer.className = 'buttonContainer';
+
+    const visitButton = generateButton('visit-button', 'visit');
+
+    const deleteButton = generateButton('delete-button', 'delete');
+
+    buttonContainer.appendChild(visitButton);
+    buttonContainer.appendChild(deleteButton);
+
+    return buttonContainer;
+}
+
+function generateButton(btnClassName, btnText) {
+    const button = document.createElement('button');
+    button.className = btnClassName;
+    button.innerText = btnText;
+
+    return button;
 }
