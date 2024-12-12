@@ -1,3 +1,16 @@
 .heading-projects {
     font-size: 5vw;
 }
+
+.project-card {
+    background-color: #fde100;
+}
+
+.button-container {
+    text-align: center;
+}
+
+.projects-content {
+    display: flex;
+    flex-direction: column;
+}
