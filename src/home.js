@@ -1,8 +1,11 @@
-import { removeElementContent, selectDomElement } from "./generalPurposeModule";
+import { removeElementContent, selectDomElement, addClassToSelector } from "./generalPurposeModule";
+
+const CLASSNAME = '';
 
 export function generateHomePage(selectorType, selectorName, imageJs, headlineText) {
     const homeContent = selectDomElement(selectorType, selectorName);
     removeElementContent(homeContent);
+    addClassToSelector(homeContent, CLASSNAME);
 
     const homepageLogo = generateHomeLogo(imageJs);
     homeContent.appendChild(homepageLogo);
