@@ -1,11 +1,17 @@
 import './styles-projects.css'
 
-import { removeElementContent, selectDomElement } from "./generalPurposeModule";
+import { removeElementContent, selectDomElement, addClassToSelector } from "./generalPurposeModule";
 import { makeTodoItemObject, createTodosProject, Project, Projects } from './todos-module'
+
+import searchIcon from './search.svg';
+import deleteIcon from './delete.svg';
+
+const CLASSNAME = 'projects-content';
 
 export function generateProjectsPage(selectorType, selectorName) {
     const homeContent = selectDomElement(selectorType, selectorName);
     removeElementContent(homeContent);
+    addClassToSelector(homeContent, CLASSNAME);
 
     const projectsObject = Projects.retrieveProjectsDataFromLocalStorage();
     if (projectsObject === null) {
@@ -67,9 +73,9 @@ function generateUiButtons() {
     const buttonContainer = document.createElement('div');
     buttonContainer.className = 'button-container';
 
-    const visitButton = generateButton('visit-button', 'visit');
+    const visitButton = generateButton('visit-button', searchIcon);
 
-    const deleteButton = generateButton('delete-button', 'delete');
+    const deleteButton = generateButton('delete-button', deleteIcon);
 
     buttonContainer.appendChild(visitButton);
     buttonContainer.appendChild(deleteButton);
@@ -77,10 +83,23 @@ function generateUiButtons() {
     return buttonContainer;
 }
 
-function generateButton(btnClassName, btnText) {
+function generateButton(btnClassName, svgIcon) {
     const button = document.createElement('button');
     button.className = btnClassName;
-    button.innerText = btnText;
+
+    const image = generateImage(svgIcon);
+    button.appendChild(image);
 
     return button;
+}
+
+function generateImage(svgIcon) {
+    const image = document.createElement('img');
+    image.src = svgIcon;
+    image.className = 'svg-icon';
+
+    image.style.width = '1.5vw';
+    image.style.height = 'auto';
+
+    return image;
 }
