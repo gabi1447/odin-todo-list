@@ -21,6 +21,9 @@ export function generateProjectsPage(selectorType, selectorName) {
     const heading = generateProjectsHeading()
     homeContent.appendChild(heading);
 
+    const btnAddProject = generateButton('add-new-project', '', 'New Project');
+    homeContent.appendChild(btnAddProject);
+
     renderProjects(homeContent);
 }
 
@@ -83,12 +86,22 @@ function generateUiButtons() {
     return buttonContainer;
 }
 
-function generateButton(btnClassName, svgIcon) {
+function generateButton(btnClassName, svgIcon='', btnContent='') {
     const button = document.createElement('button');
     button.className = btnClassName;
 
-    const image = generateImage(svgIcon);
-    button.appendChild(image);
+    if (svgIcon === '') {
+        
+    } else {
+        const image = generateImage(svgIcon);
+        button.appendChild(image);
+    }
+
+    if (btnContent === '') {
+
+    } else {
+        button.innerText = btnContent;
+    }
 
     return button;
 }
