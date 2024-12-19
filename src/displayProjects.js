@@ -2,6 +2,7 @@ import './styles-projects.css'
 
 import { removeElementContent, selectDomElement, addClassToSelector } from "./generalPurposeModule";
 import { makeTodoItemObject, createTodosProject, Project, Projects } from './todos-module'
+import { setupModalEventListeners } from './projects-modal';
 
 import searchIcon from './search.svg';
 import deleteIcon from './delete.svg';
@@ -25,6 +26,7 @@ export function generateProjectsPage(selectorType, selectorName) {
     homeContent.appendChild(btnAddProject);
 
     renderProjects(homeContent);
+    setupModalEventListeners();
 }
 
 function generateProjectsHeading() {
