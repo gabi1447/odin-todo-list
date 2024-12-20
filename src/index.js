@@ -1,5 +1,6 @@
-import './styles.css'
-import './styles-home.css'
+import './styles.css';
+import './styles-home.css';
+import './styles-modal.css';
 
 import logo from './todo-list-logo.png'
 
