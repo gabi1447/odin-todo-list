@@ -1,4 +1,4 @@
-import './styles-projects.css'
+import './styles-projects.css';
 
 import { removeElementContent, selectDomElement, addClassToSelector } from "./generalPurposeModule";
 import { makeTodoItemObject, createTodosProject, Project, Projects } from './todos-module'
