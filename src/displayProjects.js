@@ -3,6 +3,7 @@ import './styles-projects.css';
 import { removeElementContent, selectDomElement, addClassToSelector } from "./generalPurposeModule";
 import { makeTodoItemObject, createTodosProject, Project, Projects } from './todos-module'
 import { setupModalEventListeners } from './projects-modal';
+import { setupProjectCardButtonsEventListeners } from './projectCardEventListeners';
 
 import searchIcon from './search.svg';
 import deleteIcon from './delete.svg';
@@ -27,6 +28,7 @@ export function generateProjectsPage(selectorType, selectorName) {
 
     renderProjects(homeContent);
     setupModalEventListeners();
+    setupProjectCardButtonsEventListeners();
 }
 
 function generateProjectsHeading() {
