@@ -90,7 +90,7 @@ function generateUiButtons() {
     return buttonContainer;
 }
 
-function generateButton(btnClassName, svgIcon='', btnContent='') {
+export function generateButton(btnClassName, svgIcon='', btnContent='') {
     const button = document.createElement('button');
     button.className = btnClassName;
 
