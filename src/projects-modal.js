@@ -20,6 +20,10 @@ export function setupModalEventListeners() {
         const projectName = document.querySelector('#project-name');
 
         if (projectName.value) {
+            // Update projects object with values stored in local storage
+            const projectsStoredInLocalStorage = Projects.retrieveProjectsDataFromLocalStorage();
+            Projects.updateProjectsObject(projectsStoredInLocalStorage);
+
             // ADD PROJECT TO GENERAL PROJECTS
             const newProject = createTodosProject(projectName.value);
             Projects.addProject(newProject.name, newProject.itemsArray);
