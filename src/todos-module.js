@@ -1,12 +1,12 @@
 import { turnStringWithHighensToSpaces as highensToSpaces } from './generalPurposeModule.js';
 import { sendToLocalStorage, retrieveFromLocalStorage } from './localStorageModule.js';
 
-export function makeTodoItemObject(title, description, dueDate, priority) {
+export function makeTodoItemObject(title, dueDate, priority, description) {
     return {
         title: title,
-        description: description,
         dueDate: dueDate,
         priority: priority, 
+        description: description,
     }
 }
 
