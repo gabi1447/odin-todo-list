@@ -65,6 +65,12 @@ export const Projects = (function(){
         projectsObject[projectName] = ArrayOfItems;
     }
 
+    function addTodoObjectToIndividualProjectArray(projectName, todoObject) {
+        updateProjectsObject();
+        projectsObject[projectName].push(todoObject);
+        updateLocalStorage();
+    }
+
     function removeProject(projectName) {
         delete projectsObject[projectName];
     }
@@ -80,8 +86,8 @@ export const Projects = (function(){
         return retrieveFromLocalStorage(projectsKeyName);
     }
 
-    function updateProjectsObject(newProjectsObject) {
-        projectsObject = newProjectsObject;
+    function updateProjectsObject() {
+        projectsObject = retrieveProjectsDataFromLocalStorage();
     }
 
     return {
@@ -91,6 +97,7 @@ export const Projects = (function(){
         retrieveProjectsDataFromLocalStorage,
         updateProjectsObject,
         addProject,
+        addTodoObjectToIndividualProjectArray,
         removeProject
     }
 })();
