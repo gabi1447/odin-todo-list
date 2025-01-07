@@ -2,6 +2,7 @@ import './styles.css';
 import './styles-home.css';
 import './styles-modal.css';
 import './styles-individual-projects.css';
+import './styles-todo-cards.css';
 
 import logo from './todo-list-logo.png'
 
