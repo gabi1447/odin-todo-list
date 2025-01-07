@@ -18,7 +18,7 @@ export function generateIndividualProjectPage(projectName) {
     const addTodoItemBtn = generateButton('add-todo-item-btn', '', 'Add Todo');
     mainContent.appendChild(addTodoItemBtn);
     // render todo items of project if there are any in project's array of todos
-    renderTodoItems(projectName);
+    renderTodoItems(projectName, mainContent);
     setupIndividualProjectModalEventListeners();
 }
 
@@ -30,10 +30,42 @@ function generateIndividualProjectHeading(projectName) {
     return projectHeading;
 }
 
-function renderTodoItems(projectName) {
+function renderTodoItems(projectName, container) {
     const projectsObject = Projects.retrieveProjectsDataFromLocalStorage();
     const arrayOfItemsOfIndividualProject = projectsObject[projectName];
     arrayOfItemsOfIndividualProject.forEach(todo => {
         console.log(todo);
+        const itemCard = generateTodoCard(todo);
+        container.appendChild(itemCard);
+
     })
+}
+
+function generateTodoCard(todoObject) {
+    const todoCard = document.createElement('div');
+    todoCard.className = 'todo-card';
+    todoCard.id = todoObject.title;
+
+    // TITLE
+    const title = document.createElement('h2');
+    title.className = 'todo-title';
+    title.innerText = todoObject.title;
+    // DUEDATE
+    const dueDate = document.createElement('p');
+    dueDate.className = 'todo-duedate';
+    dueDate.innerText = todoObject.dueDate;
+    // PRIORITY
+    const priority = document.createElement('p');
+    priority.className = 'todo-priority';
+    priority.innerText = todoObject.priority;
+    // DESCRIPTION
+    const description = document.createElement('p');
+    description.className = 'todo-description';
+    description.innerText = todoObject.description;
+
+    // ADD FIELDS TO ITEM CARD
+    todoCard.append(title, dueDate, priority, description);
+
+    // RETURN ITEM CARD
+    return todoCard;
 }
