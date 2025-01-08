@@ -110,7 +110,7 @@ export function generateButton(btnClassName, svgIcon='', btnContent='') {
     return button;
 }
 
-function generateImage(svgIcon) {
+export function generateImage(svgIcon) {
     const image = document.createElement('img');
     image.src = svgIcon;
     image.className = 'svg-icon';
