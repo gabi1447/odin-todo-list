@@ -3,6 +3,9 @@ import { addClassToSelector, removeElementContent, selectDomElement } from "./ge
 import { Projects } from "./todos-module";
 import { setupIndividualProjectModalEventListeners } from "./addTodoItemToProjectModal";
 
+import deleteIcon from "./delete.svg";
+import editIcon from "./edit.svg";
+
 const CLASSNAME = 'individual-project-content';
 
 export function generateIndividualProjectPage(projectName) {
@@ -63,9 +66,24 @@ function generateTodoCard(todoObject) {
     description.className = 'todo-description';
     description.innerText = todoObject.description;
 
+    // GENERATE BUTTON CONTAINER WITH EDIT AND DELETE BUTTONS
+    const buttonContainer = generateTodoCardButtons();
+
     // ADD FIELDS TO ITEM CARD
-    todoCard.append(title, dueDate, priority, description);
+    todoCard.append(title, dueDate, priority, description, buttonContainer);
 
     // RETURN ITEM CARD
     return todoCard;
+}
+
+function generateTodoCardButtons() {
+    const buttonContainer = document.createElement('div');
+    buttonContainer.className = 'todo-card-button-container';
+
+    const deleteButton = generateButton('todo-delete-button', deleteIcon);
+    const editButton = generateButton('todo-edit-button', editIcon);
+
+    buttonContainer.append(editButton, deleteButton);
+
+    return buttonContainer;
 }
