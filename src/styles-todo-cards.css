@@ -17,3 +17,7 @@
 .todo-description, .todo-duedate, .todo-priority {
     font-size: 2rem;
 }
+
+.todo-duedate {
+    font-weight: bold;
+}
