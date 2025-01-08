@@ -2,6 +2,7 @@ import { generateButton } from "./displayProjects";
 import { addClassToSelector, removeElementContent, selectDomElement } from "./generalPurposeModule";
 import { Projects } from "./todos-module";
 import { setupIndividualProjectModalEventListeners } from "./addTodoItemToProjectModal";
+import { setupTodoCardEventListeners } from "./todoCardEventListeners";
 
 import deleteIcon from "./delete.svg";
 import editIcon from "./edit.svg";
@@ -23,6 +24,7 @@ export function generateIndividualProjectPage(projectName) {
     // render todo items of project if there are any in project's array of todos
     renderTodoItems(projectName, mainContent);
     setupIndividualProjectModalEventListeners();
+    setupTodoCardEventListeners();
 }
 
 function generateIndividualProjectHeading(projectName) {
