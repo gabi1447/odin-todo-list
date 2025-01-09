@@ -75,6 +75,25 @@ export const Projects = (function(){
         delete projectsObject[projectName];
     }
 
+    function removeTodoItemFromProject(projectName, titleToDelete) {
+        updateProjectsObject();
+        const todosArrayOfIndividualProject = getProjectsObject()[projectName];
+
+        // TESTING
+        console.log(todosArrayOfIndividualProject);
+
+        const updatedArray = todosArrayOfIndividualProject.filter(itemObject => {
+            if (itemObject.title !== titleToDelete) {
+                return itemObject;
+            } 
+        })
+
+        console.log(updatedArray);
+
+        projectsObject[projectName] = updatedArray;
+        updateLocalStorage();
+    }
+
     function updateLocalStorage() {
         const projectsKeyName = getProjectsKey();
         const projectsData = getProjectsObject();
@@ -98,6 +117,7 @@ export const Projects = (function(){
         updateProjectsObject,
         addProject,
         addTodoObjectToIndividualProjectArray,
-        removeProject
+        removeProject,
+        removeTodoItemFromProject
     }
 })();
