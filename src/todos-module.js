@@ -67,8 +67,24 @@ export const Projects = (function(){
 
     function addTodoObjectToIndividualProjectArray(projectName, todoObject) {
         updateProjectsObject();
-        projectsObject[projectName].push(todoObject);
-        updateLocalStorage();
+        if (isTitleAlreadyPresentInProjectTodosArray(projectName, todoObject)) {
+
+        } else {
+            projectsObject[projectName].push(todoObject);
+            updateLocalStorage();
+        }
+
+    }
+
+    function isTitleAlreadyPresentInProjectTodosArray(projectName, todoObject) {
+        updateProjectsObject();
+        const projectTodosArray = getProjectsObject()[projectName];
+        for (let itemObject of projectTodosArray) {
+            if (itemObject.title === todoObject.title) {
+                return true;
+            }
+        }
+        return false;
     }
 
     function removeProject(projectName) {
@@ -79,7 +95,7 @@ export const Projects = (function(){
         updateProjectsObject();
         const todosArrayOfIndividualProject = getProjectsObject()[projectName];
 
-        // TESTING
+        // TESTING REMOVE
         console.log(todosArrayOfIndividualProject);
 
         const updatedArray = todosArrayOfIndividualProject.filter(itemObject => {
@@ -88,6 +104,7 @@ export const Projects = (function(){
             } 
         })
 
+        // REMOVE
         console.log(updatedArray);
 
         projectsObject[projectName] = updatedArray;
