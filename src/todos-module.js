@@ -87,6 +87,22 @@ export const Projects = (function(){
         return false;
     }
 
+    function returnTodoObject(projectName, todoTitle) {
+        updateProjectsObject();
+        const projectArrayOfTodos = getProjectsObject()[projectName];
+
+        return projectArrayOfTodos.filter(itemObject => {
+            if (itemObject.title === todoTitle) {
+                return itemObject;
+            }
+        })[0];
+    }
+
+    function returnIndexOfTodoObject(projectName, todoObject) {
+        updateProjectsObject();
+        return getProjectsObject()[projectName].indexOf(todoObject);
+    }
+
     function removeProject(projectName) {
         delete projectsObject[projectName];
     }
@@ -135,6 +151,8 @@ export const Projects = (function(){
         addProject,
         addTodoObjectToIndividualProjectArray,
         removeProject,
-        removeTodoItemFromProject
+        removeTodoItemFromProject,
+        returnTodoObject,
+        returnIndexOfTodoObject
     }
 })();
