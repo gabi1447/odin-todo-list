@@ -98,9 +98,10 @@ export const Projects = (function(){
         })[0];
     }
 
-    function returnIndexOfTodoObject(projectName, todoObject) {
+    function returnIndexOfTodoObject(projectName, todoTitle) {
         updateProjectsObject();
-        return getProjectsObject()[projectName].indexOf(todoObject);
+        const projectTodosArray = getProjectsObject()[projectName];
+        return projectTodosArray.findIndex(todo => todo.title === todoTitle);
     }
 
     function removeProject(projectName) {
