@@ -128,6 +128,16 @@ export const Projects = (function(){
         updateLocalStorage();
     }
 
+    function updateTodoItem(projectName, todoObject, itemIndex) {
+        updateProjectsObject();
+        if (isTitleAlreadyPresentInProjectTodosArray(projectName, todoObject)) {
+
+        } else {
+            projectsObject[projectName][itemIndex] = todoObject;
+            updateLocalStorage();
+        }
+    }
+
     function updateLocalStorage() {
         const projectsKeyName = getProjectsKey();
         const projectsData = getProjectsObject();
@@ -149,6 +159,7 @@ export const Projects = (function(){
         updateLocalStorage,
         retrieveProjectsDataFromLocalStorage,
         updateProjectsObject,
+        updateTodoItem,
         addProject,
         addTodoObjectToIndividualProjectArray,
         removeProject,
